@@ -23,28 +23,16 @@
                 </thead>
 
                 <tbody>
-                {% for marvel in marvels["data"]["results"] %}
+                {% for plop in pif["data"]["results"] %}
                     <tr>
-                        <td>{{ marvel.id }}</td>
-                        <td>{{ marvel.name }}</td>
+                        <td>{{ plop.id }}</td>
+                        <td>{{ plop.name }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
         </div>
     </div>
-
-
-    <div class="row">
-        <div class="col m6 offset-m3">
-            <form action="{{ path("show_marvel") }}" method="post">
-                <input type="text" name="marvel" placeholder="Saissisez l'id du Marvel" required="required" />
-                <input type="submit" value="Rechercher un marvel" />
-            </form>
-        </div>
-    </div>
-
-
 
     <audio class="musique" controls autoplay>
         <source src="{{ asset('bundles/marvel/musique/marvel_song.mp3') }}" type="audio/mpeg">
