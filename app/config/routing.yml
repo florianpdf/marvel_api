@@ -1,6 +1,10 @@
 marvel:
     resource: "@MarvelBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /home
+
+home:
+    path:     /
+    defaults: { _controller: MarvelBundle:Default:home }
 
 app:
     resource: "@AppBundle/Controller/"
