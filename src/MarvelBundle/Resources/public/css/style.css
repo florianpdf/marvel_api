@@ -1,0 +1,32 @@
+/* Appel font */
+
+@font-face {
+    font-family: marvel;
+    src: url(../font/mask.ttf);
+}
+
+/* NAV BAR */
+.nav_bar{
+    background-color: #FDC400;
+}
+.nav_bar a{
+    font-family: marvel;
+    color: #2948A7;
+}
+
+/* Accueil */
+
+.img_header img{
+    width: 100%;
+    height: 100vh;
+}
+
+.musique{
+    display: none;
+}
+
+.take_it{
+    margin-top: 100px;
+    text-align: center;
+    font-family: marvel;
+}

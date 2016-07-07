@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <nav>
+        <div class="nav-wrapper nav_bar">
+            <a href="{{ path('marvel_homepage') }}" class="brand-logo center">Page d'accueil</a>
+        </div>
+    </nav>
+
+    {% for marvel in marvels["data"]["results"] %}
+        <div class="row">
+            <div class="col s12 m6 offset-m3">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{{ marvel.thumbnail.path }}.{{ marvel.thumbnail.extension }}">
+                        <span class="card-title">Card Title</span>
+                    </div>
+                    <div class="card-content">
+                        <ul class="collection with-header">
+                            <li class="collection-header">{{ marvel.name }}</li>
+                        </ul>
+                        <ul class="collection with-header">
+                            <li class="collection-header">
+                                Liste des comics
+                            </li>
+                            {% for comics in marvel.comics.items %}
+                                <li class="collection-item">
+                                    {{ comics.name }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="card-action">
+                        <a href="{{ path('marvel_homepage') }}">Retour</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+
+{% endblock %}

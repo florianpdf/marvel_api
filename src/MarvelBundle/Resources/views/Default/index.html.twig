@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="img_header">
+            <img src="{{ asset('bundles/marvel/images/marvel_background.jpg') }}">
+        </div>
+    </div>
+    <div class="row">
+        <h1 class="take_it">
+            Marvel World
+        </h1>
+    </div>
+    <div class="row">
+        <div class="col m6 offset-m3">
+            <table>
+                <thead>
+                <tr>
+                    <th data-field="id">Id</th>
+                    <th data-field="name">Name</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for marvel in marvels["data"]["results"] %}
+                    <tr>
+                        <td>{{ marvel.id }}</td>
+                        <td>{{ marvel.name }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col m6 offset-m3">
+            <form action="{{ path("show_marvel") }}" method="post">
+                <input type="text" name="marvel" placeholder="Saissisez l'id du Marvel" required="required" />
+                <input type="submit" value="Rechercher un marvel" />
+            </form>
+        </div>
+    </div>
+
+
+
+    <audio class="musique" controls autoplay>
+        <source src="{{ asset('bundles/marvel/musique/marvel_song.mp3') }}" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+{% endblock %}

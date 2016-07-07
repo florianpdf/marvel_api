@@ -1,0 +1,7 @@
+marvel_homepage:
+    path:     /
+    defaults: { _controller: MarvelBundle:Default:index }
+
+show_marvel:
+    path:     /marvel
+    defaults: { _controller: MarvelBundle:Default:showMarvel}
