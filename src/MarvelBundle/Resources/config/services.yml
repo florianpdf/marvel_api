@@ -1,4 +1,5 @@
 services:
-#    marvel.example:
-#        class: MarvelBundle\Example
+    marvel.api:
+        class: MarvelBundle\MarvelApi\MarvelCall
+        arguments: ["@request_stack"]
 #        arguments: ["@service_id", "plain_value", %parameter%]
