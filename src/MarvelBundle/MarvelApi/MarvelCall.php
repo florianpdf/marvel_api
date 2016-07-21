@@ -27,7 +27,6 @@ class MarvelCall
     public function showAction(){
         $api_key = '8b4b11c43611e66fda1b504f8cae9d7e';
         $md5 = md5('13d94c0c5ded9e1159568e675829465c37f97eece8b4b11c43611e66fda1b504f8cae9d7e');
-        //$id_marvel = $this->request->request->get('marvel');
 
         $request = $this->requestStack->getCurrentRequest();
 
