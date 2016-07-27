@@ -16,7 +16,7 @@ class DefaultController extends Controller
         ));
     }
 
-    public function showMarvelAction(Request $request)
+    public function showMarvelAction()
     {
         $characters = $this->container->get('marvel.api')->indexAction(1);
 
