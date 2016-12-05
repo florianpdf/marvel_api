@@ -13,20 +13,35 @@
         </h1>
     </div>
     <div class="row">
+        <h1>Choississez un personnage</h1>
+        <div class="col m6 offset-m3">
+            <form action="{{ path('show_marvel') }}" method="post">
+                <select name="id_marvel">
+                    {% for character in characters["data"]["results"] %}
+                        <option value="{{ character.id }}">{{ character.name }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="Rechercher">
+            </form>
+        </div>
+    </div>
+    <div class="row">
         <div class="col m6 offset-m3">
             <table>
                 <thead>
                 <tr>
                     <th data-field="id">Id</th>
                     <th data-field="name">Name</th>
+                    <th>Bouton</th>
                 </tr>
                 </thead>
 
                 <tbody>
-                {% for plop in pif["data"]["results"] %}
+                {% for character in characters["data"]["results"] %}
                     <tr>
-                        <td>{{ plop.id }}</td>
-                        <td>{{ plop.name }}</td>
+                        <td>{{ character.id }}</td>
+                        <td>{{ character.name }}</td>
+                        <td><a href="{{ path('show_marvel', {'id': character.id }) }}">En savoir plus</a></td>
                     </tr>
                 {% endfor %}
                 </tbody>
@@ -34,8 +49,10 @@
         </div>
     </div>
 
-    <audio class="musique" controls autoplay>
-        <source src="{{ asset('bundles/marvel/musique/marvel_song.mp3') }}" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $('select').material_select();
+        });
+    </script>
 {% endblock %}
